@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const { connectDB } = require('./app/utils/db');
 const authRoutes = require('./app/router/authRoutes');
 const usersRoutes = require('./app/router/users');
+const countryRoutes = require("./app/router/countryRouter");
+const apiSkillsRoutes = require("./app/router/apiSkillsRoutes");
 
 
 const config = require('./app/config');
@@ -36,6 +38,9 @@ app.use((err, req, res, next) => {
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', usersRoutes);
+app.use("/api", countryRoutes);
+app.use("/api", apiSkillsRoutes);
+
 
 
 
